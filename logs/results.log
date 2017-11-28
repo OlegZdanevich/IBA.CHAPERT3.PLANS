@@ -1,0 +1,88 @@
+Object was changed
+Object was changed from:Name: Plan1
+Price: 10
+Prices(min,mb): calls: 20 internet: 40
+Free (min,mb): calls: 1000 internet: 100
+ to Name: Plan1
+Price: 12
+Prices(min,mb): calls: 20 internet: 40
+Free (min,mb): calls: 1000 internet: 100
+
+Object was changed from:
+Name: Plan1
+Price: 10
+Prices(min,mb): calls: 20 internet: 40
+Free (min,mb): calls: 1000 internet: 100
+
+to:
+Name: Plan1
+Price: 12
+Prices(min,mb): calls: 20 internet: 40
+Free (min,mb): calls: 1000 internet: 100
+
+Plan:
+Name: Plan1
+Price: 10
+Prices(min,mb): calls: 20 internet: 40
+Free (min,mb): calls: 1000 internet: 100
+
+NumberOfUsers:
+1000Plan:
+Name: Plan3
+Price: 1060
+
+NumberOfUsers:
+3500Plan:
+Name: Plan2
+Price: 20
+Prices(min,mb): calls: 10 internet: 15
+
+NumberOfUsers:
+20000
+Plan:
+Name: Plan1
+Price: 10
+Prices(min,mb): calls: 20 internet: 40
+Free (min,mb): calls: 1000 internet: 100
+
+NumberOfUsers:
+1000
+Plan:
+Name: Plan3
+Price: 1060
+
+NumberOfUsers:
+3500
+Plan:
+Name: Plan2
+Price: 20
+Prices(min,mb): calls: 10 internet: 15
+
+NumberOfUsers:
+20000
+
+Plan:
+Name: Plan1
+Price: 10
+Prices(min,mb): calls: 20 internet: 40
+Free (min,mb): calls: 1000 internet: 100
+
+NumberOfUsers:
+1000
+
+Plan:
+Name: Plan3
+Price: 1060
+
+NumberOfUsers:
+3500
+
+Plan:
+Name: Plan2
+Price: 20
+Prices(min,mb): calls: 10 internet: 15
+
+NumberOfUsers:
+20000
+
+

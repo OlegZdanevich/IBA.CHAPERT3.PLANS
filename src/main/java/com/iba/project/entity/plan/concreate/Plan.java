@@ -2,17 +2,35 @@ package com.iba.project.entity.plan.concreate;
 
 import com.iba.project.entity.field.Field;
 import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
+import com.iba.project.patterns.observer.Observer;
 
-public class Plan extends AbstractPlan {
+import java.util.LinkedList;
+import java.util.List;
+
+public class Plan extends AbstractPlan<Plan> {
 
     private Field priceToCallsAndInternet = null;
     private Field freeMinutesAndInternet = null;
 
-    public Plan(String name, int price, long numberOfUsers) {
-        super(name, price, numberOfUsers);
+    private List<Observer> observers;
+
+
+    public Plan(String name, int price) {
+        super(name, price);
 
         priceToCallsAndInternet = new Field(0, 0);
         freeMinutesAndInternet = new Field(0L, 0L);
+
+        observers = new LinkedList<>();
+    }
+
+    public Plan(Plan plan) {
+        super(plan.getName(), plan.getPrice());
+
+        priceToCallsAndInternet = new Field(plan.getPriceToCalls(), plan.getPriceToInternet());
+        freeMinutesAndInternet = new Field(plan.getFreeMinutes(), plan.getFreeInternet());
+
+        observers = new LinkedList<>();
     }
 
     @Override
@@ -25,10 +43,6 @@ public class Plan extends AbstractPlan {
         return super.getName();
     }
 
-    @Override
-    public long getNumberOfUsers() {
-        return super.getNumberOfUsers();
-    }
 
     public long getFreeMinutes() {
         return (long) freeMinutesAndInternet.getCalls();
@@ -47,29 +61,80 @@ public class Plan extends AbstractPlan {
     }
 
     public void setFreeMinutesAndInternet(long minutes, long internet) {
+        Plan oldPlan = new Plan(this);
+
         freeMinutesAndInternet.setCalls(minutes);
         freeMinutesAndInternet.setInternet(internet);
+
+        notifyObservers(oldPlan, this);
     }
 
     public void setPriceToCallsAndInternet(int minutes, int internet) {
+        Plan oldPlan = new Plan(this);
+
         priceToCallsAndInternet.setCalls(minutes);
         priceToCallsAndInternet.setInternet(internet);
+
+        notifyObservers(oldPlan, this);
     }
 
     @Override
     public void setPrice(int price) {
+
+        Plan oldPlan = new Plan(this);
+
+
         super.setPrice(price);
+
+        notifyObservers(oldPlan, this);
+
     }
 
     @Override
     public void setName(String name) {
+        Plan oldPlan = new Plan(this);
+
         super.setName(name);
+        notifyObservers(oldPlan, this);
+    }
+
+
+
+
+
+
+    @Override
+    public String toString() {
+        String result = super.toString();
+
+        String priceHeader = ((int) priceToCallsAndInternet.getCalls() != 0 || (int) priceToCallsAndInternet.getInternet() != 0)
+                ? "Prices(min,mb): " + priceToCallsAndInternet.toString() + "\n" : "";
+
+        String freeHeader = ((long) freeMinutesAndInternet.getCalls() != 0 || (long) freeMinutesAndInternet.getInternet() != 0)
+                ? "Free (min,mb): " + freeMinutesAndInternet.toString() + "\n" : "";
+
+        result += priceHeader;
+        result += freeHeader;
+        return result;
     }
 
     @Override
-    public void setNumberOfUsers(long numberOfUsers) {
-        super.setNumberOfUsers(numberOfUsers);
+    public void registerObserver(Observer o) {
+        observers.add(o);
     }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+
+    @Override
+    public void notifyObservers(Plan oldPlan, Plan newPlan) {
+        for (Observer observer : observers)
+            observer.update(oldPlan, newPlan);
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -88,21 +153,6 @@ public class Plan extends AbstractPlan {
         int result = super.hashCode();
         result = 31 * result + priceToCallsAndInternet.hashCode();
         result = 31 * result + freeMinutesAndInternet.hashCode();
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        String result=super.toString();
-
-        String priceHeader=((int)priceToCallsAndInternet.getCalls()!=0|| (int) priceToCallsAndInternet.getInternet()!=0)
-                ?"Prices(min,mb): "+priceToCallsAndInternet.toString()+"\n":"";
-
-        String freeHeader=((long)freeMinutesAndInternet.getCalls()!=0|| (long) freeMinutesAndInternet.getInternet()!=0)
-                ?"Free (min,mb): "+freeMinutesAndInternet.toString()+"\n":"";
-
-        result+=priceHeader;
-        result+=freeHeader;
         return result;
     }
 }

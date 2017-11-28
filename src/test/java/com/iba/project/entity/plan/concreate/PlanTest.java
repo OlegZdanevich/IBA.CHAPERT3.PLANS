@@ -12,11 +12,11 @@ public class PlanTest {
 
     @Before
     public void setUp() {
-        firstPlan=new Plan("Plan1",10,1000);
+        firstPlan=new Plan("Plan1",10);
         firstPlan.setPriceToCallsAndInternet(20,40);
         firstPlan.setFreeMinutesAndInternet(1000,100);
 
-        secondPlan=new Plan("Plan2",20,40);
+        secondPlan=new Plan("Plan2",20);
         secondPlan.setPriceToCallsAndInternet(10,15);
     }
 
@@ -38,11 +38,6 @@ public class PlanTest {
         assertEquals("Plan2",secondPlan.getName());
     }
 
-    @Test
-    public void getNumberOfUsers(){
-        assertEquals(1000,firstPlan.getNumberOfUsers());
-        assertEquals(40,secondPlan.getNumberOfUsers());
-    }
 
     @Test
     public void getFreeMinutes() {
