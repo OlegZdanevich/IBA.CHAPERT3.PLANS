@@ -1,13 +1,11 @@
 package com.iba.project.keeper.plans;
 
 import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
-import com.iba.project.loggin.results.Info;
-import com.iba.project.patterns.observer.Observer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class PlansKeeper<K extends AbstractPlan> implements Observer<K> {
+public class PlansKeeper<K extends AbstractPlan> {
     HashMap<K, Long> plansMap = new HashMap<>();
 
     private static volatile PlansKeeper instance;
@@ -25,17 +23,9 @@ public class PlansKeeper<K extends AbstractPlan> implements Observer<K> {
         return localInstance;
     }
 
-    @Override
-    public void update(K oldPlan, K newPlan) {
-
-        Info.writeInfo("Object was changed from:\n"+oldPlan.toString()+"\nto:\n"+newPlan.toString());
-        Info.writeInfo(this.toString());
-    }
 
     public void setPlan(K newPlan, long numberOfUsers) {
         plansMap.put(newPlan, numberOfUsers);
-
-        newPlan.registerObserver(this);
     }
 
     public HashMap<K, Long> getPlansMap() {
@@ -44,9 +34,9 @@ public class PlansKeeper<K extends AbstractPlan> implements Observer<K> {
 
     @Override
     public String toString() {
-        StringBuilder result=new StringBuilder("");
+        StringBuilder result = new StringBuilder("");
         for (Map.Entry entry : plansMap.entrySet()) {
-            result.append("Plan:\n"+entry.getKey()+"\nNumberOfUsers:\n"+entry.getValue()+"\n\n");
+            result.append("PlanWithCalls:\n" + entry.getKey() + "\nNumberOfUsers:\n" + entry.getValue() + "\n\n");
         }
 
         return result.toString();

@@ -1,17 +1,25 @@
 package com.iba.project.entity.plan.abstraction.classes;
 
-import com.iba.project.entity.plan.abstraction.interfaces.InterfacePlan;
-import com.iba.project.patterns.observer.Observable;
+import com.iba.project.entity.plan.abstraction.interfaces.PlanInterface;
 
-public abstract class AbstractPlan<K extends AbstractPlan> implements InterfacePlan, Observable<K> {
 
+public abstract class AbstractPlan implements PlanInterface {
+
+
+    private String cellularName;
     private String name;
     private int price;
 
 
-    public AbstractPlan(String name, int price) {
+    public AbstractPlan(String cellularName, String name, int price) {
+        this.cellularName=cellularName;
         this.name = name;
         this.price = price;
+    }
+
+    @Override
+    public String getCellularName() {
+        return cellularName;
     }
 
     @Override
@@ -31,6 +39,11 @@ public abstract class AbstractPlan<K extends AbstractPlan> implements InterfaceP
     }
 
     @Override
+    public void setCellularName(String cellularName) {
+        this.cellularName = cellularName;
+    }
+
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -38,7 +51,7 @@ public abstract class AbstractPlan<K extends AbstractPlan> implements InterfaceP
 
     @Override
     public String toString() {
-        return "Name: " + this.name + "\nPrice: " + this.price + "\n";
+        return "Cellular Name: "+this.cellularName+ "\nName: " + this.name + "\nPrice: " + this.price;
     }
 
     @Override
@@ -46,15 +59,17 @@ public abstract class AbstractPlan<K extends AbstractPlan> implements InterfaceP
         if (this == o) return true;
         if (!(o instanceof AbstractPlan)) return false;
 
-        AbstractPlan<?> that = (AbstractPlan<?>) o;
+        AbstractPlan that = (AbstractPlan) o;
 
         if (getPrice() != that.getPrice()) return false;
+        if (!getCellularName().equals(that.getCellularName())) return false;
         return getName().equals(that.getName());
     }
 
     @Override
     public int hashCode() {
-        int result = getName().hashCode();
+        int result = getCellularName().hashCode();
+        result = 31 * result + getName().hashCode();
         result = 31 * result + getPrice();
         return result;
     }

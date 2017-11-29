@@ -1,6 +1,6 @@
 package com.iba.project.tools.entity.plan.comparators;
 
-import com.iba.project.entity.plan.concreate.Plan;
+import com.iba.project.entity.plan.concreate.PlanWithCalls;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,14 +8,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ComparatorByPriceTest {
-    Plan firstPlan=null;
-    Plan secondPlan=null;
+    PlanWithCalls firstPlanWithCalls =null;
+    PlanWithCalls secondPlanWithCalls =null;
     ComparatorByPrice comparator=null;
 
     @Before
     public void setUp() {
-        firstPlan=new Plan("Plan1",10);
-        secondPlan=new Plan("Plan2",100);
+        firstPlanWithCalls =new PlanWithCalls("MTS","Plan1",10);
+        secondPlanWithCalls =new PlanWithCalls("Velcome","Plan2",100);
 
 
         comparator=new ComparatorByPrice();
@@ -23,16 +23,16 @@ public class ComparatorByPriceTest {
 
     @After
     public void tearDown(){
-        firstPlan=null;
-        secondPlan=null;
+        firstPlanWithCalls =null;
+        secondPlanWithCalls =null;
 
         comparator=null;
     }
 
     @Test
     public void compare(){
-        assertEquals(-1,comparator.compare(firstPlan,secondPlan));
-        assertEquals(1,comparator.compare(secondPlan,firstPlan));
+        assertEquals(-1,comparator.compare(firstPlanWithCalls, secondPlanWithCalls));
+        assertEquals(1,comparator.compare(secondPlanWithCalls, firstPlanWithCalls));
     }
 
 }

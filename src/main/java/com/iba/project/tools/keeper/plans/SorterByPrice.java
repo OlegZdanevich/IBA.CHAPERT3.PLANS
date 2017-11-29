@@ -7,7 +7,7 @@ import com.iba.project.tools.entity.plan.comparators.ComparatorByPrice;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
-public class SorterByNumberOfUsers {
+public class SorterByPrice {
     public static <K extends AbstractPlan> LinkedHashMap<K, Long> sort(PlansKeeper keeper) {
 
 

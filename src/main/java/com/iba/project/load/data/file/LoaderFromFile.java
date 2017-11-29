@@ -6,19 +6,22 @@ import java.io.*;
 
 public class LoaderFromFile {
     public static void loadData(String filename, String delimetr) {
+        File file=null;
+        FileReader fileReader = null;
         try {
-            File data = new File("data/" + filename);
+            file = new File("data/" + filename);
 
-            FileReader fr = new FileReader(data);
-            BufferedReader reader = new BufferedReader(fr);
+            fileReader = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fileReader);
             String line = reader.readLine();
+
 
             while (line != null) {
                 String[] parsedLine = parseString(line, delimetr);
 
                 //if(Validator.isDataValid(parsedLine))
                 //{
-                //  Plan plan=
+                //  PlanWithCalls plan=
                 //PlansKeeper plans=PlansKeeper.getInstance();
 
 
@@ -34,6 +37,18 @@ public class LoaderFromFile {
 
         {
             Exceptions.ReadFileException(exception);
+        }
+        finally {
+            try{
+
+                if(fileReader!=null)
+                    fileReader.close();
+            }
+            catch(IOException exception){
+
+                Exceptions.ReadFileException(exception);
+            }
+
         }
 
     }
