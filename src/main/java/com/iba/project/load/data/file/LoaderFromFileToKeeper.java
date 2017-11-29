@@ -1,10 +1,11 @@
 package com.iba.project.load.data.file;
 
 import com.iba.project.loggin.exceptions.Exceptions;
+import com.iba.project.tools.creator.PlanReader;
 
 import java.io.*;
 
-public class LoaderFromFile {
+public class LoaderFromFileToKeeper {
     public static void loadData(String filename, String delimetr) {
         File file=null;
         FileReader fileReader = null;
@@ -19,13 +20,8 @@ public class LoaderFromFile {
             while (line != null) {
                 String[] parsedLine = parseString(line, delimetr);
 
-                //if(Validator.isDataValid(parsedLine))
-                //{
-                //  PlanWithCalls plan=
-                //PlansKeeper plans=PlansKeeper.getInstance();
+                PlanReader.createPlan(parsedLine);
 
-
-                //}
                 line = reader.readLine();
             }
 
