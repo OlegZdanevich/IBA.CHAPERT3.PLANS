@@ -3,25 +3,26 @@ package com.iba.project.entity.plan.concreate;
 import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithCallsInterface;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class PlanWithCalls extends AbstractPlan implements PlanWithCallsInterface {
 
-    private int priceOfCalls;
+    private BigDecimal priceOfCalls;
 
 
-    public PlanWithCalls(String cellularName, String name, int price) {
+    public PlanWithCalls(String cellularName, String name, BigDecimal price) {
         super(cellularName, name, price);
-
     }
 
     public PlanWithCalls(PlanWithCalls planWithCalls) {
         super(planWithCalls.getCellularName(), planWithCalls.getName(), planWithCalls.getPrice());
 
-
         this.priceOfCalls=planWithCalls.priceOfCalls;
     }
 
     @Override
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return super.getPrice();
     }
 
@@ -31,7 +32,7 @@ public class PlanWithCalls extends AbstractPlan implements PlanWithCallsInterfac
     }
 
     @Override
-    public int getPriceOfCalls() {
+    public BigDecimal getPriceOfCalls() {
         return priceOfCalls;
     }
 
@@ -47,12 +48,13 @@ public class PlanWithCalls extends AbstractPlan implements PlanWithCallsInterfac
     }
 
     @Override
-    public void setPriceOfCalls(int priceOfCalls) {
+    public void setPriceOfCalls(BigDecimal priceOfCalls) {
+        priceOfCalls.setScale(2,RoundingMode.UP);
         this.priceOfCalls = priceOfCalls;
     }
 
     @Override
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
 
         super.setPrice(price);
 
@@ -74,6 +76,7 @@ public class PlanWithCalls extends AbstractPlan implements PlanWithCallsInterfac
         return result;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,13 +85,13 @@ public class PlanWithCalls extends AbstractPlan implements PlanWithCallsInterfac
 
         PlanWithCalls that = (PlanWithCalls) o;
 
-        return priceOfCalls == that.priceOfCalls;
+        return priceOfCalls.equals(that.priceOfCalls);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + priceOfCalls;
+        result = 31 * result + priceOfCalls.hashCode();
         return result;
     }
 }

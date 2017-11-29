@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 
 public class PlanWithCallsTest {
@@ -12,11 +14,11 @@ public class PlanWithCallsTest {
 
     @Before
     public void setUp() {
-        firstPlanWithCalls =new PlanWithCalls("MTS","Plan1",10);
-        firstPlanWithCalls.setPriceOfCalls(20);
+        firstPlanWithCalls =new PlanWithCalls("MTS","Plan1",new BigDecimal(10));
+        firstPlanWithCalls.setPriceOfCalls(new BigDecimal(20));
 
-        secondPlanWithCalls =new PlanWithCalls("VELCOME","Plan2",20);
-        secondPlanWithCalls.setPriceOfCalls(10);
+        secondPlanWithCalls =new PlanWithCalls("VELCOME","Plan2",new BigDecimal(20));
+        secondPlanWithCalls.setPriceOfCalls(new BigDecimal(10));
     }
 
     @After
@@ -27,8 +29,8 @@ public class PlanWithCallsTest {
 
     @Test
     public void getPrice() {
-        assertEquals(10, firstPlanWithCalls.getPrice());
-        assertEquals(20, secondPlanWithCalls.getPrice());
+        assertEquals(new BigDecimal(10), firstPlanWithCalls.getPrice());
+        assertEquals(new BigDecimal(20), secondPlanWithCalls.getPrice());
     }
 
     @Test
@@ -42,8 +44,8 @@ public class PlanWithCallsTest {
 
     @Test
     public void getPriceToCalls() {
-        assertEquals(20, firstPlanWithCalls.getPriceOfCalls());
-        assertEquals(10, secondPlanWithCalls.getPriceOfCalls());
+        assertEquals(new BigDecimal(20), firstPlanWithCalls.getPriceOfCalls());
+        assertEquals(new BigDecimal(10), secondPlanWithCalls.getPriceOfCalls());
     }
 
 

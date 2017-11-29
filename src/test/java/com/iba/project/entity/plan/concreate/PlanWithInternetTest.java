@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 
 public class PlanWithInternetTest {
@@ -12,11 +14,11 @@ public class PlanWithInternetTest {
 
     @Before
     public void setUp() {
-        firstPlanWithInternet =new PlanWithInternet("MTS","Plan1",10);
-        firstPlanWithInternet.setPriceOfInternet(20);
+        firstPlanWithInternet =new PlanWithInternet("MTS","Plan1",new BigDecimal(10));
+        firstPlanWithInternet.setPriceOfInternet(new BigDecimal(20));
 
-        secondPlanWithInternet =new PlanWithInternet("VELCOME","Plan2",20);
-        secondPlanWithInternet.setPriceOfInternet(10);
+        secondPlanWithInternet =new PlanWithInternet("VELCOME","Plan2",new BigDecimal(20));
+        secondPlanWithInternet.setPriceOfInternet(new BigDecimal(10));
     }
 
     @After
@@ -27,8 +29,8 @@ public class PlanWithInternetTest {
 
     @Test
     public void getPrice() {
-        assertEquals(10, firstPlanWithInternet.getPrice());
-        assertEquals(20, secondPlanWithInternet.getPrice());
+        assertEquals(new BigDecimal(10), firstPlanWithInternet.getPrice());
+        assertEquals(new BigDecimal(20), secondPlanWithInternet.getPrice());
     }
 
     @Test
@@ -42,8 +44,8 @@ public class PlanWithInternetTest {
 
     @Test
     public void getPriceToInternet() {
-        assertEquals(20, firstPlanWithInternet.getPriceOfInternet());
-        assertEquals(10, secondPlanWithInternet.getPriceOfInternet());
+        assertEquals(new BigDecimal(20), firstPlanWithInternet.getPriceOfInternet());
+        assertEquals(new BigDecimal(10), secondPlanWithInternet.getPriceOfInternet());
     }
 
 

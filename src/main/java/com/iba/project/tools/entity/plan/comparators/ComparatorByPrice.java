@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class ComparatorByPrice <K extends AbstractPlan> implements Comparator<K> {
     public int compare(K firstElement, K secondElement) {
-        int result = (firstElement.getPrice() > secondElement.getPrice()) ? 1 : -1;
+        int result = (firstElement.getPrice().compareTo(secondElement.getPrice())>0 ) ? 1 : -1;
         return result;
 
     }

@@ -165,3 +165,81 @@ NumberOfUsers:
 1000
 
 
+PlanWithCalls:
+Cellular Name: Velcom
+Name: Plan2
+Price: 20
+price Of internet: 10
+NumberOfUsers:
+20000
+
+PlanWithCalls:
+Cellular Name: Life
+Name: Plan3
+Price: 1060
+price Of calls: 20
+price Of internet: 10
+NumberOfUsers:
+3500
+
+PlanWithCalls:
+Cellular Name: MTS
+Name: Plan1
+Price: 10
+price Of calls: 20
+NumberOfUsers:
+1000
+
+
+PlanWithCalls:
+Cellular Name: Velcom
+Name: Plan2
+Price: 20
+price Of internet: 10
+NumberOfUsers:
+20000
+
+PlanWithCalls:
+Cellular Name: Life
+Name: Plan3
+Price: 1060
+price Of calls: 20
+price Of internet: 10
+NumberOfUsers:
+3500
+
+PlanWithCalls:
+Cellular Name: MTS
+Name: Plan1
+Price: 10
+price Of calls: 20
+NumberOfUsers:
+1000
+
+
+PlanWithCalls:
+Cellular Name: MTS
+Name: Plan1
+Price: 10
+price Of calls: 20
+NumberOfUsers:
+1000
+
+PlanWithCalls:
+Cellular Name: Velcom
+Name: Plan2
+Price: 20
+price Of internet: 10
+NumberOfUsers:
+20000
+
+PlanWithCalls:
+Cellular Name: Life
+Name: Plan3
+Price: 1060
+price Of calls: 20
+price Of internet: 10
+NumberOfUsers:
+3500
+
+

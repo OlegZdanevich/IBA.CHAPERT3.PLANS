@@ -5,17 +5,19 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 
 public class ComparatorByPriceTest {
-    PlanWithCalls firstPlanWithCalls =null;
-    PlanWithCalls secondPlanWithCalls =null;
-    ComparatorByPrice comparator=null;
+    private PlanWithCalls firstPlanWithCalls =null;
+    private PlanWithCalls secondPlanWithCalls =null;
+    private ComparatorByPrice comparator=null;
 
     @Before
     public void setUp() {
-        firstPlanWithCalls =new PlanWithCalls("MTS","Plan1",10);
-        secondPlanWithCalls =new PlanWithCalls("Velcome","Plan2",100);
+        firstPlanWithCalls =new PlanWithCalls("MTS","Plan1",new BigDecimal(10));
+        secondPlanWithCalls =new PlanWithCalls("Velcome","Plan2",new BigDecimal(100));
 
 
         comparator=new ComparatorByPrice();

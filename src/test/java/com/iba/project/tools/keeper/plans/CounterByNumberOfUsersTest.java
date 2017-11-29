@@ -8,6 +8,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 
 public class CounterByNumberOfUsersTest {
@@ -22,15 +24,15 @@ public class CounterByNumberOfUsersTest {
     {
         keeper=PlansKeeper.getInstance();
 
-        planWithCalls =new PlanWithCalls("MTS","Plan1",20);
-        planWithCalls.setPriceOfCalls(20);
+        planWithCalls =new PlanWithCalls("MTS","Plan1",new BigDecimal(20));
+        planWithCalls.setPriceOfCalls(new BigDecimal(20));
 
-        planWithInternet =new PlanWithInternet("Velcom","Plan2",10);
-        planWithInternet.setPriceOfInternet(10);
+        planWithInternet =new PlanWithInternet("Velcom","Plan2",new BigDecimal(10));
+        planWithInternet.setPriceOfInternet(new BigDecimal(10));
 
-        planWithCallsAndInternet =new PlanWithCallsAndInternet("Life","Plan3",1060);
-        planWithCallsAndInternet.setPriceOfInternet(10);
-        planWithCallsAndInternet.setPriceOfCalls(20);
+        planWithCallsAndInternet =new PlanWithCallsAndInternet("Life","Plan3",new BigDecimal(1060));
+        planWithCallsAndInternet.setPriceOfInternet(new BigDecimal(10));
+        planWithCallsAndInternet.setPriceOfCalls(new BigDecimal(20));
 
 
         keeper.setPlan(planWithCalls,1000);

@@ -4,13 +4,16 @@ import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithCallsInterface;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithInternetInterface;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class PlanWithCallsAndInternet extends AbstractPlan implements PlanWithInternetInterface,PlanWithCallsInterface{
 
-    private int priceOfCalls;
-    private int priceOfInternet;
+    private BigDecimal priceOfCalls;
+    private BigDecimal priceOfInternet;
 
 
-    public PlanWithCallsAndInternet(String cellularName, String name, int price) {
+    public PlanWithCallsAndInternet(String cellularName, String name, BigDecimal price) {
         super(cellularName, name, price);
 
     }
@@ -25,7 +28,7 @@ public class PlanWithCallsAndInternet extends AbstractPlan implements PlanWithIn
     }
 
     @Override
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return super.getPrice();
     }
 
@@ -35,12 +38,12 @@ public class PlanWithCallsAndInternet extends AbstractPlan implements PlanWithIn
     }
 
     @Override
-    public int getPriceOfCalls() {
+    public BigDecimal getPriceOfCalls() {
         return priceOfCalls;
     }
 
     @Override
-    public int getPriceOfInternet() {
+    public BigDecimal getPriceOfInternet() {
         return priceOfInternet;
     }
 
@@ -56,17 +59,22 @@ public class PlanWithCallsAndInternet extends AbstractPlan implements PlanWithIn
     }
 
     @Override
-    public void setPriceOfCalls(int priceOfCalls) {
+    public void setPriceOfCalls(BigDecimal priceOfCalls) {
+        priceOfCalls.setScale(2, RoundingMode.UP);
+
         this.priceOfCalls = priceOfCalls;
     }
 
     @Override
-    public void setPriceOfInternet(int priceOfInternet) {
+    public void setPriceOfInternet(BigDecimal priceOfInternet) {
+        priceOfInternet.setScale(2,RoundingMode.UP);
+
         this.priceOfInternet = priceOfInternet;
     }
 
     @Override
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
+
 
         super.setPrice(price);
 
@@ -89,15 +97,15 @@ public class PlanWithCallsAndInternet extends AbstractPlan implements PlanWithIn
 
         PlanWithCallsAndInternet that = (PlanWithCallsAndInternet) o;
 
-        if (getPriceOfCalls() != that.getPriceOfCalls()) return false;
-        return getPriceOfInternet() == that.getPriceOfInternet();
+        if (!priceOfCalls.equals(that.priceOfCalls)) return false;
+        return priceOfInternet.equals(that.priceOfInternet);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + getPriceOfCalls();
-        result = 31 * result + getPriceOfInternet();
+        result = 31 * result + priceOfCalls.hashCode();
+        result = 31 * result + priceOfInternet.hashCode();
         return result;
     }
 

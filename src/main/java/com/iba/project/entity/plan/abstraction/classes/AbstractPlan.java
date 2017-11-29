@@ -2,17 +2,22 @@ package com.iba.project.entity.plan.abstraction.classes;
 
 import com.iba.project.entity.plan.abstraction.interfaces.PlanInterface;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 
 public abstract class AbstractPlan implements PlanInterface {
 
 
     private String cellularName;
     private String name;
-    private int price;
+    private BigDecimal price;
 
 
-    public AbstractPlan(String cellularName, String name, int price) {
-        this.cellularName=cellularName;
+    public AbstractPlan(String cellularName, String name, BigDecimal price) {
+        price.setScale(2, RoundingMode.UP);
+
+        this.cellularName = cellularName;
         this.name = name;
         this.price = price;
     }
@@ -23,7 +28,7 @@ public abstract class AbstractPlan implements PlanInterface {
     }
 
     @Override
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -34,7 +39,8 @@ public abstract class AbstractPlan implements PlanInterface {
 
 
     @Override
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
+        price.setScale(2,RoundingMode.UP);
         this.price = price;
     }
 
@@ -51,7 +57,7 @@ public abstract class AbstractPlan implements PlanInterface {
 
     @Override
     public String toString() {
-        return "Cellular Name: "+this.cellularName+ "\nName: " + this.name + "\nPrice: " + this.price;
+        return "Cellular Name: " + this.cellularName + "\nName: " + this.name + "\nPrice: " + this.price;
     }
 
     @Override
@@ -61,16 +67,16 @@ public abstract class AbstractPlan implements PlanInterface {
 
         AbstractPlan that = (AbstractPlan) o;
 
-        if (getPrice() != that.getPrice()) return false;
-        if (!getCellularName().equals(that.getCellularName())) return false;
-        return getName().equals(that.getName());
+        if (!cellularName.equals(that.cellularName)) return false;
+        if (!name.equals(that.name)) return false;
+        return price.equals(that.price);
     }
 
     @Override
     public int hashCode() {
-        int result = getCellularName().hashCode();
-        result = 31 * result + getName().hashCode();
-        result = 31 * result + getPrice();
+        int result = cellularName.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + price.hashCode();
         return result;
     }
 }

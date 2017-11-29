@@ -1,7 +1,9 @@
 package com.iba.project.entity.plan.abstraction.interfaces;
 
+import java.math.BigDecimal;
+
 public interface PlanWithCallsInterface
 {
-    int getPriceOfCalls();
-    void setPriceOfCalls(int priceOfCalls);
+    BigDecimal getPriceOfCalls();
+    void setPriceOfCalls(BigDecimal priceOfCalls);
 }

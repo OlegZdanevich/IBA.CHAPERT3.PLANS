@@ -3,12 +3,15 @@ package com.iba.project.entity.plan.concreate;
 import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithInternetInterface;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class PlanWithInternet extends AbstractPlan implements PlanWithInternetInterface
 {
-    private int priceOfInternet;
+    private BigDecimal priceOfInternet;
 
 
-    public PlanWithInternet(String cellularName, String name, int price) {
+    public PlanWithInternet(String cellularName, String name, BigDecimal price) {
         super(cellularName, name, price);
 
     }
@@ -20,7 +23,7 @@ public class PlanWithInternet extends AbstractPlan implements PlanWithInternetIn
     }
 
     @Override
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return super.getPrice();
     }
 
@@ -31,7 +34,7 @@ public class PlanWithInternet extends AbstractPlan implements PlanWithInternetIn
 
 
     @Override
-    public int getPriceOfInternet() {
+    public BigDecimal getPriceOfInternet() {
         return priceOfInternet;
     }
 
@@ -47,12 +50,14 @@ public class PlanWithInternet extends AbstractPlan implements PlanWithInternetIn
     }
 
     @Override
-    public void setPriceOfInternet(int priceOfInternet) {
+    public void setPriceOfInternet(BigDecimal priceOfInternet) {
+
+        priceOfInternet.setScale(2, RoundingMode.UP);
         this.priceOfInternet = priceOfInternet;
     }
 
     @Override
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
 
         super.setPrice(price);
 
@@ -82,13 +87,13 @@ public class PlanWithInternet extends AbstractPlan implements PlanWithInternetIn
 
         PlanWithInternet that = (PlanWithInternet) o;
 
-        return getPriceOfInternet() == that.getPriceOfInternet();
+        return priceOfInternet.equals(that.priceOfInternet);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + getPriceOfInternet();
+        result = 31 * result + priceOfInternet.hashCode();
         return result;
     }
 }

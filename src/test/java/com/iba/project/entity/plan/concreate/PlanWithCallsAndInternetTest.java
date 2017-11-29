@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.*;
 
 public class PlanWithCallsAndInternetTest {
@@ -12,13 +14,13 @@ public class PlanWithCallsAndInternetTest {
 
     @Before
     public void setUp() {
-        firstPlanWithCalls =new PlanWithCallsAndInternet("MTS","Plan1",10);
-        firstPlanWithCalls.setPriceOfInternet(40);
-        firstPlanWithCalls.setPriceOfCalls(20);
+        firstPlanWithCalls =new PlanWithCallsAndInternet("MTS","Plan1",new BigDecimal(10));
+        firstPlanWithCalls.setPriceOfInternet(new BigDecimal(40));
+        firstPlanWithCalls.setPriceOfCalls(new BigDecimal(20));
 
-        secondPlanWithCalls =new PlanWithCallsAndInternet("VELCOME","Plan2",20);
-        secondPlanWithCalls.setPriceOfInternet(30);
-        secondPlanWithCalls.setPriceOfCalls(10);
+        secondPlanWithCalls =new PlanWithCallsAndInternet("VELCOME","Plan2",new BigDecimal(20));
+        secondPlanWithCalls.setPriceOfInternet(new BigDecimal(30));
+        secondPlanWithCalls.setPriceOfCalls(new BigDecimal(10));
     }
 
     @After
@@ -29,8 +31,8 @@ public class PlanWithCallsAndInternetTest {
 
     @Test
     public void getPrice() {
-        assertEquals(10, firstPlanWithCalls.getPrice());
-        assertEquals(20, secondPlanWithCalls.getPrice());
+        assertEquals(new BigDecimal(10), firstPlanWithCalls.getPrice());
+        assertEquals(new BigDecimal(20), secondPlanWithCalls.getPrice());
     }
 
     @Test
@@ -44,14 +46,14 @@ public class PlanWithCallsAndInternetTest {
 
     @Test
     public void getPriceToCalls() {
-        assertEquals(20, firstPlanWithCalls.getPriceOfCalls());
-        assertEquals(10, secondPlanWithCalls.getPriceOfCalls());
+        assertEquals(new BigDecimal(20), firstPlanWithCalls.getPriceOfCalls());
+        assertEquals(new BigDecimal(10), secondPlanWithCalls.getPriceOfCalls());
     }
 
     @Test
     public void getPriceToInterenet() {
-        assertEquals(40, firstPlanWithCalls.getPriceOfInternet());
-        assertEquals(30, secondPlanWithCalls.getPriceOfInternet());
+        assertEquals(new BigDecimal(40), firstPlanWithCalls.getPriceOfInternet());
+        assertEquals(new BigDecimal(30), secondPlanWithCalls.getPriceOfInternet());
     }
 
 
