@@ -117,3 +117,19 @@ com.iba.project.load.data.file.LoaderFromFileToKeeper.loadData(LoaderFromFileToK
 com.iba.project.tools.creator.PlanReader.createPlan(PlanReader.java:16)
 com.iba.project.tools.validator.Validator.isDataValidForPlan(Validator.java:9)
 
+[ERROR] 2017-12-01 22:14:10.989 [main] LoggerForExceptions - You should enter integer number
+[TRACE] 2017-12-01 22:14:10.989 [main] LoggerForExceptions - [Ljava.lang.StackTraceElement;@14fa86ae
+[ERROR] 2017-12-01 22:14:11.005 [main] LoggerForExceptions - Invalid length of data 
+[TRACE] 2017-12-01 22:14:11.005 [main] LoggerForExceptions - [Ljava.lang.StackTraceElement;@6e15fe2
+[ERROR] 2017-12-01 22:15:14.032 [main] LoggerForExceptions - You should enter integer number
+[TRACE] 2017-12-01 22:15:14.032 [main] LoggerForExceptions - [Ljava.lang.StackTraceElement;@14fa86ae
+[ERROR] 2017-12-01 22:15:14.032 [main] LoggerForExceptions - Invalid length of data 
+[TRACE] 2017-12-01 22:15:14.032 [main] LoggerForExceptions - [Ljava.lang.StackTraceElement;@6e15fe2
+[ERROR] 2017-12-01 22:15:48.448 [main] LoggerForExceptions - You should enter integer number
+[TRACE] 2017-12-01 22:15:48.448 [main] LoggerForExceptions - java.lang.NumberFormatException: Not a digit.
+[ERROR] 2017-12-01 22:15:48.448 [main] LoggerForExceptions - Invalid length of data 
+[TRACE] 2017-12-01 22:15:48.448 [main] LoggerForExceptions - java.lang.IllegalArgumentException: Invalid length of data 
+[ERROR] 2017-12-01 22:20:46.949 [main] LoggerForExceptions - You should enter integer number
+[TRACE] 2017-12-01 22:20:46.949 [main] LoggerForExceptions - [Ljava.lang.StackTraceElement;@14fa86ae
+[ERROR] 2017-12-01 22:20:46.949 [main] LoggerForExceptions - Invalid length of data 
+[TRACE] 2017-12-01 22:20:46.949 [main] LoggerForExceptions - [Ljava.lang.StackTraceElement;@6e15fe2

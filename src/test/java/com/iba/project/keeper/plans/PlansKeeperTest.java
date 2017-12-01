@@ -3,13 +3,12 @@ package com.iba.project.keeper.plans;
 import com.iba.project.entity.plan.concreate.PlanWithCalls;
 import com.iba.project.entity.plan.concreate.PlanWithCallsAndInternet;
 import com.iba.project.entity.plan.concreate.PlanWithInternet;
-import com.iba.project.loggin.results.Info;
+import com.iba.project.loggin.results.LoggerForInfo;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 
 public class PlansKeeperTest {
 
@@ -56,7 +55,7 @@ public class PlansKeeperTest {
     @Test
     public void viewKeeperData()
     {
-        Info.writeInfo(keeper.toString());
+        LoggerForInfo.writeInfo(keeper.toString());
     }
 
 }

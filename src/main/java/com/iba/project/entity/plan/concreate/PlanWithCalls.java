@@ -2,6 +2,7 @@ package com.iba.project.entity.plan.concreate;
 
 import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithCallsInterface;
+import com.iba.project.loggin.exceptions.LoggerForExceptions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -49,8 +50,17 @@ public class PlanWithCalls extends AbstractPlan implements PlanWithCallsInterfac
 
     @Override
     public void setPriceOfCalls(BigDecimal priceOfCalls) {
-        priceOfCalls.setScale(2,RoundingMode.UP);
-        this.priceOfCalls = priceOfCalls;
+        try{
+            if(priceOfCalls.intValue()<0) throw new IllegalArgumentException("price should be grater then zero");
+            priceOfCalls.setScale(2,RoundingMode.UP);
+            this.priceOfCalls = priceOfCalls;
+        }
+        catch (IllegalArgumentException exception)
+        {
+            this.priceOfCalls=new BigDecimal(0);
+            LoggerForExceptions.notCorrectNumbersException(exception);
+        }
+
     }
 
     @Override

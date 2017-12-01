@@ -268,3 +268,103 @@ NumberOfUsers:
 400
 
 
+PlanWithCalls:
+Cellular Name: MTS
+Name: Plan1
+Price: 10
+price Of calls: 1
+NumberOfUsers:
+300
+
+PlanWithCalls:
+Cellular Name: Life
+Name: Plan3
+Price: 10
+price Of internet: 200
+NumberOfUsers:
+400
+
+PlanWithCalls:
+Cellular Name: Velcome
+Name: Plan2
+Price: 10
+price Of calls: 100
+NumberOfUsers:
+400
+
+
+PlanWithCalls:
+Cellular Name: MTS
+Name: Plan1
+Price: 10
+price Of calls: 1
+NumberOfUsers:
+300
+
+PlanWithCalls:
+Cellular Name: Life
+Name: Plan3
+Price: 10
+price Of internet: 200
+NumberOfUsers:
+400
+
+PlanWithCalls:
+Cellular Name: Velcome
+Name: Plan2
+Price: 10
+price Of calls: 100
+NumberOfUsers:
+400
+
+
+PlanWithCalls:
+Cellular Name: MTS
+Name: Plan1
+Price: 10
+price Of calls: 1
+NumberOfUsers:
+300
+
+PlanWithCalls:
+Cellular Name: Life
+Name: Plan3
+Price: 10
+price Of internet: 200
+NumberOfUsers:
+400
+
+PlanWithCalls:
+Cellular Name: Velcome
+Name: Plan2
+Price: 10
+price Of calls: 100
+NumberOfUsers:
+400
+
+
+PlanWithCalls:
+Cellular Name: MTS
+Name: Plan1
+Price: 10
+price Of calls: 1
+NumberOfUsers:
+300
+
+PlanWithCalls:
+Cellular Name: Life
+Name: Plan3
+Price: 10
+price Of internet: 200
+NumberOfUsers:
+400
+
+PlanWithCalls:
+Cellular Name: Velcome
+Name: Plan2
+Price: 10
+price Of calls: 100
+NumberOfUsers:
+400
+
+

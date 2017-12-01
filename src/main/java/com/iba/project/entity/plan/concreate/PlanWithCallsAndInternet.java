@@ -3,6 +3,7 @@ package com.iba.project.entity.plan.concreate;
 import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithCallsInterface;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithInternetInterface;
+import com.iba.project.loggin.exceptions.LoggerForExceptions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -60,16 +61,36 @@ public class PlanWithCallsAndInternet extends AbstractPlan implements PlanWithIn
 
     @Override
     public void setPriceOfCalls(BigDecimal priceOfCalls) {
-        priceOfCalls.setScale(2, RoundingMode.UP);
+        try{
+            if(priceOfCalls.intValue()<0) throw new IllegalArgumentException("price should be greater then zero");
 
-        this.priceOfCalls = priceOfCalls;
+            priceOfCalls.setScale(2, RoundingMode.UP);
+
+            this.priceOfCalls = priceOfCalls;
+        }
+        catch (IllegalArgumentException exception)
+        {
+            this.priceOfCalls=new BigDecimal(0);
+            LoggerForExceptions.notCorrectNumbersException(exception);
+        }
+
     }
 
     @Override
     public void setPriceOfInternet(BigDecimal priceOfInternet) {
-        priceOfInternet.setScale(2,RoundingMode.UP);
+        try {
+            if (priceOfInternet.intValue()<0) throw new IllegalArgumentException("price should be greater then zero");
+            priceOfInternet.setScale(2,RoundingMode.UP);
 
-        this.priceOfInternet = priceOfInternet;
+            this.priceOfInternet = priceOfInternet;
+        }
+
+        catch (IllegalArgumentException exception)
+        {
+            this.priceOfInternet=new BigDecimal(0);
+            LoggerForExceptions.notCorrectNumbersException(exception);
+        }
+
     }
 
     @Override

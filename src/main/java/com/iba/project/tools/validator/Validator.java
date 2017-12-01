@@ -1,6 +1,8 @@
 package com.iba.project.tools.validator;
 
-import com.iba.project.loggin.exceptions.Exceptions;
+import com.iba.project.loggin.exceptions.LoggerForExceptions;
+
+import java.math.BigDecimal;
 
 public class Validator
 {
@@ -8,14 +10,14 @@ public class Validator
         try {
             if (data.length != 6) throw new IllegalArgumentException("Invalid length of data ");
 
-            Double.parseDouble(data[2]);
-            Double.parseDouble(data[3]);
-            Double.parseDouble(data[4]);
+            new BigDecimal(data[2]);
+            new BigDecimal(data[3]);
+            new BigDecimal(data[4]);
         } catch (NumberFormatException exception) {
-            Exceptions.notNumberException(exception);
+            LoggerForExceptions.notNumberException(exception);
             return false;
         } catch (IllegalArgumentException exception) {
-            Exceptions.notCorrectNumbersException(exception);
+            LoggerForExceptions.notCorrectNumbersException(exception);
             return false;
         }
         return true;
@@ -30,12 +32,12 @@ public class Validator
         }
         catch (NumberFormatException exception)
         {
-            Exceptions.notNumberException(exception);
+            LoggerForExceptions.notNumberException(exception);
             return false;
         }
         catch (IllegalArgumentException exception)
         {
-            Exceptions.notCorrectNumbersException(exception);
+            LoggerForExceptions.notCorrectNumbersException(exception);
             return false;
         }
         return true;

@@ -3,9 +3,9 @@ package com.iba.project.loggin.results;
 
 import org.apache.log4j.Logger;
 
-public class Info
+public class LoggerForInfo
 {
-    private static final Logger log = Logger.getLogger(Info.class);
+    private static final Logger log = Logger.getLogger(LoggerForInfo.class);
 
     public static void writeInfo(String information)
     {

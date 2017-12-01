@@ -42,7 +42,8 @@ public class PlansKeeper<K extends AbstractPlan> {
         return result.toString();
     }
 
-    private PlansKeeper() {
+    private PlansKeeper()
+    {
 
     }
 }

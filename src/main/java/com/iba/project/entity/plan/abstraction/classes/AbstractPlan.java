@@ -1,6 +1,7 @@
 package com.iba.project.entity.plan.abstraction.classes;
 
 import com.iba.project.entity.plan.abstraction.interfaces.PlanInterface;
+import com.iba.project.loggin.exceptions.LoggerForExceptions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -40,8 +41,17 @@ public abstract class AbstractPlan implements PlanInterface {
 
     @Override
     public void setPrice(BigDecimal price) {
-        price.setScale(2,RoundingMode.UP);
-        this.price = price;
+        try {
+            if(price.intValue()<0) throw new IllegalArgumentException("price should be grater then zero");
+            price.setScale(2,RoundingMode.UP);
+            this.price = price;
+        }
+        catch (IllegalArgumentException exception)
+        {
+            this.price=new BigDecimal(0);
+            LoggerForExceptions.notCorrectNumbersException(exception);
+        }
+
     }
 
     @Override

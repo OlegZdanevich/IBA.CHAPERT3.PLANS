@@ -1,6 +1,6 @@
 package com.iba.project.load.data.file;
 
-import com.iba.project.loggin.exceptions.Exceptions;
+import com.iba.project.loggin.exceptions.LoggerForExceptions;
 import com.iba.project.tools.creator.PlanReader;
 
 import java.io.*;
@@ -28,11 +28,11 @@ public class LoaderFromFileToKeeper {
         } catch (FileNotFoundException exception)
 
         {
-            Exceptions.fileNotFoundException(exception);
+            LoggerForExceptions.fileNotFoundException(exception);
         } catch (IOException exception)
 
         {
-            Exceptions.ReadFileException(exception);
+            LoggerForExceptions.ReadFileException(exception);
         }
         finally {
             try{
@@ -42,7 +42,7 @@ public class LoaderFromFileToKeeper {
             }
             catch(IOException exception){
 
-                Exceptions.ReadFileException(exception);
+                LoggerForExceptions.ReadFileException(exception);
             }
 
         }

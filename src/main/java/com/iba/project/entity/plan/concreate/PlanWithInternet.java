@@ -2,6 +2,7 @@ package com.iba.project.entity.plan.concreate;
 
 import com.iba.project.entity.plan.abstraction.classes.AbstractPlan;
 import com.iba.project.entity.plan.abstraction.interfaces.PlanWithInternetInterface;
+import com.iba.project.loggin.exceptions.LoggerForExceptions;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -33,7 +34,7 @@ public class PlanWithInternet extends AbstractPlan implements PlanWithInternetIn
     }
 
 
-    @Override
+
     public BigDecimal getPriceOfInternet() {
         return priceOfInternet;
     }
@@ -49,11 +50,21 @@ public class PlanWithInternet extends AbstractPlan implements PlanWithInternetIn
         super.setCellularName(cellularName);
     }
 
-    @Override
+
     public void setPriceOfInternet(BigDecimal priceOfInternet) {
 
-        priceOfInternet.setScale(2, RoundingMode.UP);
-        this.priceOfInternet = priceOfInternet;
+        try {
+            if (priceOfInternet.intValue()<0) throw new IllegalArgumentException("price should be greater then zero");
+            priceOfInternet.setScale(2,RoundingMode.UP);
+
+            this.priceOfInternet = priceOfInternet;
+        }
+
+        catch (IllegalArgumentException exception)
+        {
+            this.priceOfInternet=new BigDecimal(0);
+            LoggerForExceptions.notCorrectNumbersException(exception);
+        }
     }
 
     @Override
