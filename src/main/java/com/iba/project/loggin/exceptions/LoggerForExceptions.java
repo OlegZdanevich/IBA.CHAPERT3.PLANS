@@ -9,25 +9,21 @@ public class LoggerForExceptions {
     private static final Logger log = Logger.getLogger(LoggerForExceptions.class);
 
     public static void fileNotFoundException(FileNotFoundException exception) {
-        log.error("There is no file in this directory");
-        log.trace(exception.getStackTrace());
+        log.trace("There is no file in this directory",exception);
     }
 
     public static void ReadFileException(IOException exception) {
 
-        log.error("Failed to read file");
-        log.trace(exception.getStackTrace());
+        log.trace("Failed to read file",exception);
     }
 
 
     public static void notNumberException(NumberFormatException exception) {
-        log.error("You should enter integer number");
-        log.trace(exception.getStackTrace());
+        log.trace("You should enter integer number",exception);
     }
 
     public static void notCorrectNumbersException(IllegalArgumentException exception) {
-        log.error(exception.getMessage());
-        log.trace(exception.getStackTrace());
+        log.trace(exception.getMessage(),exception);
 
     }
 

@@ -4,9 +4,10 @@ import com.iba.project.loggin.exceptions.LoggerForExceptions;
 import com.iba.project.tools.creator.PlanReader;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class LoaderFromFileToKeeper {
-    public static void loadData(String filename, String delimetr) {
+    public static void loadData(String filename, String delimeter) {
         File file=null;
         FileReader fileReader = null;
         try {
@@ -14,11 +15,13 @@ public class LoaderFromFileToKeeper {
 
             fileReader = new FileReader(file);
             BufferedReader reader = new BufferedReader(fileReader);
+
             String line = reader.readLine();
 
 
             while (line != null) {
-                String[] parsedLine = parseString(line, delimetr);
+
+                String[] parsedLine = parseString(line, delimeter);
 
                 PlanReader.createPlan(parsedLine);
 
