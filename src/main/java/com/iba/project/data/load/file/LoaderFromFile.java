@@ -1,4 +1,4 @@
-package com.iba.project.load.data.file;
+package com.iba.project.data.load.file;
 
 import com.iba.project.loggin.exceptions.LoggerForExceptions;
 import com.iba.project.tools.creator.PlanReader;
@@ -6,7 +6,7 @@ import com.iba.project.tools.creator.PlanReader;
 import java.io.*;
 import java.util.Scanner;
 
-public class LoaderFromFileToKeeper {
+public class LoaderFromFile {
     public static void loadData(String filename, String delimeter) {
         File file=null;
         FileReader fileReader = null;

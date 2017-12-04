@@ -21,8 +21,8 @@ java.base/java.lang.reflect.Method.invoke(Method.java:564)
 java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-com.iba.project.load.data.file.LoaderFromFileToKeeperTest.loadData(LoaderFromFileToKeeperTest.java:15)
-com.iba.project.load.data.file.LoaderFromFileToKeeper.loadData(LoaderFromFileToKeeper.java:15)
+LoaderFromFileTest.loadData(LoaderFromFileToKeeperTest.java:15)
+LoaderFromFile.loadData(LoaderFromFileToKeeper.java:15)
 java.base/java.io.FileReader.<init>(FileReader.java:72)
 java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
 java.base/java.io.FileInputStream.open(FileInputStream.java:196)
@@ -51,8 +51,8 @@ java.base/java.lang.reflect.Method.invoke(Method.java:564)
 java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-com.iba.project.load.data.file.LoaderFromFileToKeeperTest.loadData(LoaderFromFileToKeeperTest.java:15)
-com.iba.project.load.data.file.LoaderFromFileToKeeper.loadData(LoaderFromFileToKeeper.java:15)
+LoaderFromFileTest.loadData(LoaderFromFileToKeeperTest.java:15)
+LoaderFromFile.loadData(LoaderFromFileToKeeper.java:15)
 java.base/java.io.FileReader.<init>(FileReader.java:72)
 java.base/java.io.FileInputStream.<init>(FileInputStream.java:139)
 java.base/java.io.FileInputStream.open(FileInputStream.java:196)
@@ -81,8 +81,8 @@ java.base/java.lang.reflect.Method.invoke(Method.java:564)
 java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-com.iba.project.load.data.file.LoaderFromFileToKeeperTest.loadData(LoaderFromFileToKeeperTest.java:17)
-com.iba.project.load.data.file.LoaderFromFileToKeeper.loadData(LoaderFromFileToKeeper.java:23)
+LoaderFromFileTest.loadData(LoaderFromFileToKeeperTest.java:17)
+LoaderFromFile.loadData(LoaderFromFileToKeeper.java:23)
 com.iba.project.tools.creator.PlanReader.createPlan(PlanReader.java:16)
 com.iba.project.tools.validator.Validator.isDataValidForPlan(Validator.java:12)
 java.base/java.lang.Double.parseDouble(Double.java:543)
@@ -112,8 +112,8 @@ java.base/java.lang.reflect.Method.invoke(Method.java:564)
 java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-com.iba.project.load.data.file.LoaderFromFileToKeeperTest.loadData(LoaderFromFileToKeeperTest.java:17)
-com.iba.project.load.data.file.LoaderFromFileToKeeper.loadData(LoaderFromFileToKeeper.java:23)
+LoaderFromFileTest.loadData(LoaderFromFileToKeeperTest.java:17)
+LoaderFromFile.loadData(LoaderFromFileToKeeper.java:23)
 com.iba.project.tools.creator.PlanReader.createPlan(PlanReader.java:16)
 com.iba.project.tools.validator.Validator.isDataValidForPlan(Validator.java:9)
 
@@ -141,8 +141,8 @@ java.lang.NumberFormatException: Not a digit.
 	at java.math.BigDecimal.<init>(BigDecimal.java:828) ~[?:?]
 	at com.iba.project.tools.validator.Validator.isDataValidForPlan(Validator.java:14) [classes/:?]
 	at com.iba.project.tools.creator.PlanReader.createPlan(PlanReader.java:17) [classes/:?]
-	at com.iba.project.load.data.file.LoaderFromFileToKeeper.loadData(LoaderFromFileToKeeper.java:23) [classes/:?]
-	at com.iba.project.load.data.file.LoaderFromFileToKeeperTest.loadData(LoaderFromFileToKeeperTest.java:13) [test-classes/:?]
+	at LoaderFromFile.loadData(LoaderFromFileToKeeper.java:23) [classes/:?]
+	at LoaderFromFileTest.loadData(LoaderFromFileToKeeperTest.java:13) [test-classes/:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -169,8 +169,8 @@ java.lang.NumberFormatException: Not a digit.
 java.lang.IllegalArgumentException: Invalid length of data 
 	at com.iba.project.tools.validator.Validator.isDataValidForPlan(Validator.java:11) [classes/:?]
 	at com.iba.project.tools.creator.PlanReader.createPlan(PlanReader.java:17) [classes/:?]
-	at com.iba.project.load.data.file.LoaderFromFileToKeeper.loadData(LoaderFromFileToKeeper.java:23) [classes/:?]
-	at com.iba.project.load.data.file.LoaderFromFileToKeeperTest.loadData(LoaderFromFileToKeeperTest.java:13) [test-classes/:?]
+	at LoaderFromFile.loadData(LoaderFromFileToKeeper.java:23) [classes/:?]
+	at LoaderFromFileTest.loadData(LoaderFromFileToKeeperTest.java:13) [test-classes/:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
 	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
